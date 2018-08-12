@@ -2,13 +2,11 @@ import sqlite3
 from sqlite3 import Error
 
 def create_connection(db_file):
-    
     try:
         conn = sqlite3.connect(db_file)
         return conn
     except Error as e:
         print e
-
     return None
 
 def create_table(conn, create_table_sql):
@@ -20,7 +18,6 @@ def create_table(conn, create_table_sql):
 
 def main():
     database = 'pdf.db'
-
     sql_create_pdf_table = """ CREATE TABLE IF NOT EXISTS pdf_info (
                                     id integer PRIMARY KEY,
                                     text_box text NOT NULL,
@@ -34,7 +31,7 @@ def main():
     if conn is not None:
         create_table(conn, sql_create_pdf_table)
     else:
-        print "Error"
+        print "Connection Error"
 
 if __name__ == '__main__':
     main()

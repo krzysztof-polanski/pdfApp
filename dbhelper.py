@@ -1,8 +1,6 @@
 import sqlite3
 
-
 class DBHelper:
-
     def connect(self,database='pdf.db'):
         return sqlite3.connect(database)
 
