@@ -1,6 +1,7 @@
 import sqlite3
 from sqlite3 import Error
 
+
 def create_connection(db_file):
     try:
         conn = sqlite3.connect(db_file)
@@ -9,6 +10,7 @@ def create_connection(db_file):
         print e
     return None
 
+
 def create_table(conn, create_table_sql):
     try:
         c = conn.cursor()
@@ -16,7 +18,8 @@ def create_table(conn, create_table_sql):
     except Error as e:
         print e
 
-def main():
+
+def run():
     database = 'pdf.db'
     sql_create_pdf_table = """ CREATE TABLE IF NOT EXISTS pdf_info (
                                     id integer PRIMARY KEY,
@@ -33,5 +36,6 @@ def main():
     else:
         print "Connection Error"
 
+
 if __name__ == '__main__':
-    main()
+    run()

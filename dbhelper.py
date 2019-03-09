@@ -1,7 +1,9 @@
 import sqlite3
 
+
 class DBHelper:
-    def connect(self,database='pdf.db'):
+    @staticmethod
+    def connect(database='pdf.db'):
         return sqlite3.connect(database)
 
     def get_all_inputs(self):
